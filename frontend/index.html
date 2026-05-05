@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyAgent · 对话</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- 左侧：会话列表 -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          <span class="brand-name">MyAgent</span>
+        </div>
+        <button id="btn-new-session" class="btn btn-primary btn-block" title="新建会话">
+          + 新建会话
+        </button>
+      </div>
+      <div class="session-list" id="session-list"></div>
+      <div class="sidebar-footer">
+        <span class="muted">v0.1 · Doubao</span>
+      </div>
+    </aside>
+
+    <!-- 中间：对话区 -->
+    <main class="chat">
+      <header class="chat-header">
+        <div class="chat-title">
+          <span id="current-session-label">未选择会话</span>
+        </div>
+        <div class="chat-actions">
+          <button id="btn-clear-session" class="btn btn-ghost" title="清空当前会话">
+            清空
+          </button>
+        </div>
+      </header>
+
+      <section class="messages" id="messages">
+        <div class="empty-state" id="empty-state">
+          <div class="empty-title">开始一段对话</div>
+          <div class="empty-sub">在下方输入框里输入你的问题，Agent 将调用工具与技能协助你。</div>
+        </div>
+      </section>
+
+      <footer class="composer">
+        <div class="composer-inner">
+          <textarea
+            id="input"
+            class="input"
+            rows="1"
+            placeholder="发送消息…（Enter 发送，Shift+Enter 换行）"
+          ></textarea>
+          <button id="btn-send" class="btn btn-primary btn-send">发送</button>
+        </div>
+        <div class="composer-hint muted">所有对话保存在后端内存中，关闭服务后会丢失。</div>
+      </footer>
+    </main>
+
+    <!-- 右侧：Skills 面板 -->
+    <aside class="skills-panel">
+      <div class="panel-header">可用技能</div>
+      <div id="skills-list" class="skills-list"></div>
+    </aside>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
